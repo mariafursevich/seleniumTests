@@ -11,5 +11,16 @@ import java.time.Duration;
 import java.util.List;
 
 public class BasicTests {
-   //empty file
+    @Test
+    public void OpeningPageTest() {
+
+        WebDriver driver = new ChromeDriver();
+        driver.get("https://the-internet.herokuapp.com");
+        List<WebElement> links = driver.findElements(By.tagName("a"));
+        links.get(10).click();
+        WebElement textDragDrop = (new WebDriverWait(driver, Duration.ofSeconds(5))).
+                until(ExpectedConditions.presenceOfElementLocated(By.className("example")));
+        Assert.assertTrue(textDragDrop.isDisplayed());
+        driver.quit();
+    }
 }
