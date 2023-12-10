@@ -1,5 +1,6 @@
 package Task2;
 
+import Task3.NavigationInCatalog;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -24,9 +25,7 @@ public class RubberDucksTests {
         WebDriver driver = new ChromeDriver();
         driver.get("https://litecart.stqa.ru/en/");
         new Certificate(driver).acceptCertificate();
-        Actions builder = new Actions(driver);
-        WebElement catalog = driver.findElement(By.xpath("//li[@class='category-1']//a[contains(text(),'Rubber Ducks')]"));
-        builder.moveToElement(catalog).click().perform();
+        new NavigationInCatalog().navigationInCatalog(driver);
         WebElement categories = driver.findElement(By.cssSelector(".listing-wrapper.products"));
         Assert.assertTrue(categories.isDisplayed());
         driver.quit();
