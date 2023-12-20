@@ -1,12 +1,21 @@
 package Task4_Selenide;
+import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.testng.ScreenShooter;
+import io.qameta.allure.Description;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.screenshot;
 
 public class LoginPageTests extends TestBase {
     @Test
+    @Feature("Login") @Story("US-1")  @Description("Login with valid credentials")
     public void validCredentials() {
         setup();
         LoginCredentialsPage loginCredentialsPage = new LoginCredentialsPage();
@@ -15,6 +24,7 @@ public class LoginPageTests extends TestBase {
         tearDown();
     }
     @Test
+    @Feature("Login") @Story("US-1")  @Description("Verify that error is shown if user entered invalid credentials")
     public void invalidCredentials() {
         setup();
         LoginCredentialsPage loginCredentialsPage = new LoginCredentialsPage();
@@ -23,6 +33,7 @@ public class LoginPageTests extends TestBase {
         tearDown();
     }
     @Test
+    @Feature("Login") @Story("US-1") @Description("Verify that inf message is shown after user clicked on Reset the password")
     public void lostPassword() {
         setup();
         LoginCredentialsPage loginCredentialsPage = new LoginCredentialsPage();

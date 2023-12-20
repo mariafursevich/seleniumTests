@@ -1,7 +1,12 @@
 package Task4_Selenide;
 
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Description;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Story;
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
 import org.testng.annotations.Test;
 
 import static com.codeborne.selenide.Condition.text;
@@ -10,7 +15,9 @@ import static com.codeborne.selenide.Selenide.actions;
 
 public class CheckoutPageTests extends TestBase {
     @Test
+    @Feature("Basket") @Story("US-2") @Description("Verify that selected products are shown in basket")
     public void productInBasket() throws InterruptedException {
+        Selenide.screenshot(OutputType.FILE);
         setup();
         LoginCredentialsPage loginCredentialsPage = new LoginCredentialsPage();
         loginCredentialsPage.attemptLogin("test@test.com", "1234567");
