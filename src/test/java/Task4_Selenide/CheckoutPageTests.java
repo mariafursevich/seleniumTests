@@ -17,7 +17,6 @@ public class CheckoutPageTests extends TestBase {
     @Test
     @Feature("Basket") @Story("US-2") @Description("Verify that selected products are shown in basket")
     public void productInBasket() throws InterruptedException {
-        Selenide.screenshot(OutputType.FILE);
         setup();
         LoginCredentialsPage loginCredentialsPage = new LoginCredentialsPage();
         loginCredentialsPage.attemptLogin("test@test.com", "1234567");
