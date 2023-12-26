@@ -6,6 +6,9 @@ import io.qameta.allure.Story;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
+
+import java.net.MalformedURLException;
+
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
@@ -13,7 +16,7 @@ import static com.codeborne.selenide.Selenide.*;
 public class CatalogPageTests extends TestBase {
   @Test
   @Feature("Product Cards") @Story("US-3") @Description("Verify that Yellow Duck is On Sale")
-    public void productOnSale(){
+    public void productOnSale()  {
         setup();
         new TopMenu().navigationInCatalog();
         $(By.xpath("//div[@title='On Sale']")).shouldBe(visible);
@@ -22,7 +25,7 @@ public class CatalogPageTests extends TestBase {
     }
     @Test
     @Feature("Product Cards") @Story("US-3") @Description("Verify that product on sale")
-    public void productOnSaleFullCard(){
+    public void productOnSaleFullCard() {
         setup();
         new TopMenu().navigationInCatalog();
         $(By.xpath("//img[@alt='Yellow Duck']")).click();
@@ -31,7 +34,7 @@ public class CatalogPageTests extends TestBase {
     }
     @Test
     @Feature("Product Cards") @Story("US-3") @Description("Verify that sale price is shown near product card")
-    public void productOnSalePrice(){
+    public void productOnSalePrice() {
         setup();
         new TopMenu().navigationInCatalog();
         $(By.xpath("//img[@alt='Yellow Duck']")).click();
