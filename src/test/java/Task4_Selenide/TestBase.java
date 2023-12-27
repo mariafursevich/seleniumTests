@@ -13,6 +13,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 
 import static com.codeborne.selenide.Browsers.CHROME;
+import static com.codeborne.selenide.Browsers.EDGE;
 import static com.codeborne.selenide.Selenide.*;
 
 public class TestBase {
@@ -28,11 +29,12 @@ public class TestBase {
         }
     }
 
-    @BeforeTest
+        @BeforeTest
         protected void setup()  {
             DesiredCapabilities caps = new DesiredCapabilities();
             caps.setPlatform(Platform.WINDOWS);
             caps.setBrowserName(CHROME);
+            caps.setBrowserName(EDGE);
             //caps.setVersion("95.0");
 
             WebDriver driver = new RemoteWebDriver(hubUrl, caps);
