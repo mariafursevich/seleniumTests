@@ -7,6 +7,7 @@ import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import java.net.MalformedURLException;
@@ -14,7 +15,7 @@ import java.net.MalformedURLException;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.actions;
-
+@Listeners(ScreenshotListener.class)
 public class CheckoutPageTests extends TestBase {
     @Test
     @Feature("Basket") @Story("US-2") @Description("Verify that selected products are shown in basket")

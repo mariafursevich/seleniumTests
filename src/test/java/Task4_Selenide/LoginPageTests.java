@@ -15,7 +15,7 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.screenshot;
-
+@Listeners(ScreenshotListener.class)
 public class LoginPageTests extends TestBase {
     @Test
     @Feature("Login") @Story("US-1")  @Description("Login with valid credentials")

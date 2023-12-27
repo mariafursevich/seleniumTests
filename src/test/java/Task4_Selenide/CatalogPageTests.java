@@ -5,6 +5,7 @@ import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import java.net.MalformedURLException;
@@ -12,10 +13,11 @@ import java.net.MalformedURLException;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
-
+@Listeners(ScreenshotListener.class)
 public class CatalogPageTests extends TestBase {
-  @Test
-  @Feature("Product Cards") @Story("US-3") @Description("Verify that Yellow Duck is On Sale")
+
+    @Test
+    @Feature("Product Cards") @Story("US-3") @Description("Verify that Yellow Duck is On Sale")
     public void productOnSale()  {
         setup();
         new TopMenu().navigationInCatalog();
