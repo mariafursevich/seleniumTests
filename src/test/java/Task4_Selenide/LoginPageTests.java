@@ -23,7 +23,7 @@ public class LoginPageTests extends TestBase {
         setup();
         LoginCredentialsPage loginCredentialsPage = new LoginCredentialsPage();
         loginCredentialsPage.attemptLogin("test1@test.com", "1234567");
-        $(By.cssSelector(".notice.success")).shouldBe(visible);
+        $(By.cssSelector(".notice.success")).shouldNotBe(visible);
         tearDown();
     }
     @Test

@@ -37,10 +37,10 @@ public class TestBase {
             DesiredCapabilities caps = new DesiredCapabilities();
             caps.setPlatform(Platform.WINDOWS);
 
-            String browser = System.getProperty("browserName", "chrome");
+            String browser = System.getProperty("browser", "chrome");
             switch(browser) {
-                case "chrome" -> caps.setBrowserName(CHROME);
-                case "edge" -> caps.setBrowserName(EDGE);
+                case "chrome" -> caps.setBrowserName(Browser.CHROME.browserName());
+                case "edge" -> caps.setBrowserName(Browser.EDGE.browserName());
             }
             //caps.setVersion("95.0");
 
