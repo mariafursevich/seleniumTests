@@ -22,7 +22,7 @@ public class LoginPageTests extends TestBase {
     public void validCredentials()  {
         setup();
         LoginCredentialsPage loginCredentialsPage = new LoginCredentialsPage();
-        loginCredentialsPage.attemptLogin("test@test.com", "1234567");
+        loginCredentialsPage.attemptLogin("test1@test.com", "1234567");
         $(By.cssSelector(".notice.success")).shouldBe(visible);
         tearDown();
     }
@@ -31,7 +31,7 @@ public class LoginPageTests extends TestBase {
     public void invalidCredentials()  {
         setup();
         LoginCredentialsPage loginCredentialsPage = new LoginCredentialsPage();
-        loginCredentialsPage.attemptLogin("test@test.com", "1234");
+        loginCredentialsPage.attemptLogin("test1@test.com", "1234");
         $(By.cssSelector(".notice.errors")).shouldBe(visible);
         tearDown();
     }
@@ -40,7 +40,7 @@ public class LoginPageTests extends TestBase {
     public void lostPassword()  {
         setup();
         LoginCredentialsPage loginCredentialsPage = new LoginCredentialsPage();
-        loginCredentialsPage.attemptLostPassword("test@test.com", "");
+        loginCredentialsPage.attemptLostPassword("test1@test.com", "");
         $(By.cssSelector(".notice.success")).shouldHave(text("A new password has been sent to your email address."));
         tearDown();
     }
