@@ -29,12 +29,18 @@ public class TestBase {
         }
     }
 
+
+
         @BeforeTest
         protected void setup()  {
             DesiredCapabilities caps = new DesiredCapabilities();
             caps.setPlatform(Platform.WINDOWS);
-            caps.setBrowserName(CHROME);
-            caps.setBrowserName(EDGE);
+
+            String browser = System.getProperty("browser", "chrome");
+            switch(browser) {
+                case "chrome" -> caps.setBrowserName(CHROME);
+                case "edge" -> caps.setBrowserName(EDGE);
+            }
             //caps.setVersion("95.0");
 
             WebDriver driver = new RemoteWebDriver(hubUrl, caps);
